@@ -77,8 +77,13 @@ body{
   0%{
     top: 0;
     transform: translateX(-50%) translateY(0) scale(0.5);
-    opacity: 0.25;
+    opacity: 0;
 
+  }
+  0.1%{
+    top: 0;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+    opacity: 0.25;
   }
   25%{
     transform: translateX(-50%) translateY(-100%) scale(0.5);
@@ -104,6 +109,11 @@ body{
 
 @keyframes afterAnimate{
   0%{
+    bottom: 0;
+    transform: translateX(-50%) translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  0.1%{
     bottom: 0;
     transform: translateX(-50%) translateY(0) scale(0.5);
     opacity: 0.25;
