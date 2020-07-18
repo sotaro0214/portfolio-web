@@ -1,11 +1,15 @@
-$color1:#55c1ff;
-$color2:#dc6bad;
+$color1:#808080;
+$color2:#202020;
 $background:#0c0c0c;
 $white: #ffffff;
 
 
 body{
   background-color: $white;
+}
+
+#intro-button{
+  top:100px;
 }
 
 .container{
@@ -26,7 +30,7 @@ body{
   // border: 1px solid #ffffff;
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 100px;
   left: 0;
   right: 0;
   margin: auto;
