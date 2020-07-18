@@ -3,8 +3,9 @@ $color2:#dc6bad;
 $background:#0c0c0c;
 $white: #ffffff;
 
+
 body{
-  background-color: $background;
+  background-color: $white;
 }
 
 .container{
@@ -22,7 +23,7 @@ body{
 .dnaloader{
   height: 10rem;
   width: 30rem;
-  border: 1px solid #ffffff;
+  // border: 1px solid #ffffff;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -34,7 +35,7 @@ body{
   align-items: center;
 
   .nucleotide{
-    border: 1px solid #ffffff;
+    // border: 1px solid #ffffff;
     height: 80%;
     width: 0;
     position: relative;
@@ -48,24 +49,22 @@ body{
       transform: translateX(-50%);
       margin: auto;
       border-radius: 500px;
+      animation-duration: 1.5s;
+      animation-delay: calc(var(--animation-order) * 0.15s);
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
     }
     &::before{
       top: 0;
       background-color: $color1;
-      animation: beforeAnimate 1.5s linear infinite;
+      animation-name: beforeAnimate;
+
     }
     &::after{
       bottom: 0;
       background-color: $color2;
-      animation: afterAnimate 1.5s linear infinite;
-    }
-  }
-}
-
-@for $i from 1 through 15{
-  .nucleotide:nth-child(#{$i}){
-    &::before,&::after{
-      animation-delay: #{$i*0.15}s;
+      animation-name: afterAnimate;
     }
   }
 }
@@ -75,6 +74,7 @@ body{
     top: 0;
     transform: translateX(-50%) translateY(0) scale(0.5);
     opacity: 0.25;
+
   }
   25%{
     transform: translateX(-50%) translateY(-100%) scale(0.5);
