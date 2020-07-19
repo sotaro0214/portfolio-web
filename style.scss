@@ -8,9 +8,54 @@ body{
   background-color: $white;
 }
 
-#intro-button{
-  top:100px;
+#button-container{
+  text-align: center;
+  top: 100px;
 }
+
+#intro-button{
+  // border-radius: 4px;
+  // background-color: #f4511e;
+
+  // color: #FFFFFF;
+  text-align: center;
+  // font-size: 28px;
+  // padding: 20px;
+  // width: 10%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro-button span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#intro-button span:after{
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#intro-button:hover span {
+  padding-right: 25px;
+}
+
+#intro-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
 
 .container{
   position: fixed;
