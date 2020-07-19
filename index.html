@@ -7,8 +7,13 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="style.min.css">
+  <noscript>
+    body {
+      opacity: 1 !important;
+    }
+  </noscript>
 </head>
-<body>
+<body style="opacity: 0;">
   <div class="container">
     <div class="dnaloader" id="dnaloader">
       <div class="nucleotide" style="--animation-order: 1;"></div>
@@ -38,20 +43,28 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   <script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"> </script>
   <script type="text/javascript">
-    $(document).on("click", "a", function (event) {
-      var newUrl = $(this).attr("href");
+    jQuery.holdReady(true);
+    jQuery("body").css("opacity", 0);
+    jQuery.holdReady(false);
+    jQuery(function ($) {
+      $("body").fadeTo(1500, 1);
+      $(document).on("click", "a", function (event) {
+        var newUrl = $(this).attr("href");
 
-      event.preventDefault();
-      if (!newUrl || newUrl[0] === "#") {
-        location.hash = newUrl;
-        return;
-      }
+        event.preventDefault();
+        $("body").fadeTo(750, 0, function () {
+          if (!newUrl || newUrl[0] === "#") {
+            location.hash = newUrl;
+            return;
+          }
 
-      $("html").fadeOut(function () {
-        location = newUrl;
+        // $("html").fadeOut(function () {
+          location = newUrl;
+        // });
+
+          return false;
+        });
       });
-
-      return false;
     });
   </script>
 </body>
