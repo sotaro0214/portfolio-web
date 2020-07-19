@@ -8,54 +8,6 @@ body{
   background-color: $white;
 }
 
-#button-container{
-  text-align: center;
-  top: 100px;
-}
-
-#intro-button{
-  // border-radius: 4px;
-  // background-color: #f4511e;
-
-  // color: #FFFFFF;
-  text-align: center;
-  // font-size: 28px;
-  // padding: 20px;
-  // width: 10%;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#intro-button span{
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-#intro-button span:after{
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-#intro-button:hover span {
-  padding-right: 25px;
-}
-
-#intro-button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-
 
 .container{
   position: fixed;
@@ -82,12 +34,14 @@ body{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  // animation-play-state: paused;
 
   .nucleotide{
     // border: 1px solid #ffffff;
     height: 80%;
     width: 0;
     position: relative;
+    // animation-play-state: paused;
     &::before,&::after{
       content:"";
       position: absolute;
@@ -103,6 +57,7 @@ body{
       animation-fill-mode: both;
       animation-timing-function: linear;
       animation-iteration-count: infinite;
+      // animation-play-state: paused;
     }
     &::before{
       top: 0;
@@ -183,4 +138,57 @@ body{
     transform: translateX(-50%) translateY(0%) scale(0.5);
     opacity: 0.25;
   }
+}
+
+
+#button-container{
+  text-align: center;
+  top: 100px;
+}
+
+#intro-button{
+  // border-radius: 4px;
+  // background-color: #f4511e;
+
+  // color: #FFFFFF;
+  text-align: center;
+  // font-size: 28px;
+  // padding: 20px;
+  // width: 10%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro-button span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#intro-button span:after{
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#intro-button:hover span {
+  padding-right: 25px;
+}
+
+#intro-button:hover span:after {
+  opacity: 1;
+  right: 0;
+
+}
+
+#intro-button:active span{
+  opacity: 0.25;
 }
